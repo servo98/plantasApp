@@ -10,6 +10,9 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
+  mounted: function() {
+    console.log(process.env)
+  },
   name: 'home',
   components: {
     HelloWorld
