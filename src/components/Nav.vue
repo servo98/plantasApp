@@ -14,7 +14,7 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
+      <a class="navbar-item" v-on:click="getAxios('pokemon/ditto/')">
         Home
       </a>
 
@@ -62,7 +62,8 @@
 </template>
 
 <script>
+import axios from '../mixins/axios'
 export default {
-  
+  mixins: [axios]
 }
 </script>
