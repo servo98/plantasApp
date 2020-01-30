@@ -11,6 +11,20 @@
 <script>
 import Nav from '@/components/Nav.vue'
 export default {
+  name: 'app',
+  data: function() {
+      return {
+          cosa:'esoeqweq'
+      }
+  },
+  methods:{
+    login() {
+      let d = new Date();                
+      d.setTime(d.getTime() + (1*24*60*60*1000));
+      let expires = "expires="+ d.toUTCString();
+      document.cookie = 'eose;'+ expires + ";path=/";
+    }
+  },
   components: {
     Nav
   }
