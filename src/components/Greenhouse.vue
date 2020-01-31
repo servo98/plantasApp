@@ -15,7 +15,8 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
+import http from '../mixins/axios'
 export default {
     mounted() {
         this.pedirPlantas()
@@ -27,13 +28,19 @@ export default {
     },
     methods: {
         pedirPlantas(){
-            axios.get('http://localhost:3000/plants', {
-                responseType: 'json'
-            })
-            .then((response) => {
-                this.plantas = response.data
-            })
+            this.getAxios('plants')
+                .then(res => {
+                    this.plantas = res.data
+                });
+            // console.log()
+            // axios.get('http://localhost:3000/plants', {
+            //     responseType: 'json'
+            // })
+            // .then((response) => {
+            //     this.plantas = response.data
+            // })
         }
-    }
+    },
+    mixins: [http]
 };
 </script>

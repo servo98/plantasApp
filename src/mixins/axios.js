@@ -1,26 +1,29 @@
 import axios from 'axios'
 
 const http = axios.create({
-    baseURL: 'https://pokeapi.co/api/v2/',
+    baseURL: 'http://localhost:4000/',
     timeout: 1000,
+    headers: []
     // headers: {'X-Custom-Header': 'foobar'}
 });
 
 export default {
     methods: {
         getAxios(endPoint) {
-            let d = new Date();
-            d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
-            let expires = "expires=" + d.toUTCString();
-            document.cookie = 'toto=eose;' + expires + ";path=/";
-            console.log(localStorage)
-            http.get(endPoint)
-                .then(res => {
-                    console.log(res)
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+            return http.get(endPoint);
+        },
+        postAxios(endPoint, data){
+            return http.post(endPoint, {
+                data
+            });
+        },
+        putAxios(endPoint, data){
+            return http.put(endPoint, {
+                data
+            });
+        },
+        deleteAxios(endPoint){
+            return http.delete(endPoint);
         }
     }
 }

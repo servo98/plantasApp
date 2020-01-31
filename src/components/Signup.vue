@@ -1,25 +1,25 @@
 <template>
   <div class="container">
-    <div class="columns">
+    <div class="columns is-mobile">
       <div class="column is-6 is-offset-3">
         <form onsubmit="return false" action="">
           <div class="field">
             <label class="label">Nombre</label>
             <div class="control">
-              <input v-model="name" required="required" class="input" type="text" placeholder="Nombre" />
+              <input v-model="firstName" required="required" class="input" type="text" placeholder="Nombre" />
             </div>
           </div>
           <div class="field">
             <label class="label">Apellidos</label>
             <div class="control">
-              <input required="required" class="input" type="text" placeholder="Apellidos" />
+              <input v-model="lastname" required="required" class="input" type="text" placeholder="Apellidos" />
             </div>
           </div>
           <div class="field has-text-centered">
             <label class="label">Género</label>
             <div class="control has-text-centered ">
               <div class="select ">
-                <select required>
+                <select v-model="gender" required>
                   <option selected >Selecciona uno</option>
                   <option value="male">Masculino</option>
                   <option value="female">Femenino</option>
@@ -31,29 +31,29 @@
           <div class="field">
             <label class="label">Correo</label>
             <div class="control">
-              <input required="required" class="input" type="email" placeholder="correo@ejemplo.com" />
+              <input v-model="email" required="required" class="input" type="email" placeholder="correo@ejemplo.com" />
             </div>
           </div>
           <div class="field">
             <label class="label">Contraseña</label>
             <div class="control">
-              <input required="required" class="input" type="password" placeholder="********" />
+              <input v-model="password" required="required" class="input" type="password" placeholder="********" />
             </div>
           </div>
           <div class="field">
             <label class="label">Teléfono</label>
             <div class="control">
-              <input required="required" class="input" type="text" placeholder="5512345678" />
+              <input v-model="phone" required="required" class="input" type="text" placeholder="5512345678" />
             </div>
           </div>
           <div class="field">
             <label class="label">Fecha de nacimiento</label>
             <div class="control">
-              <input required="required" class="input" type="date" />
+              <input v-model="birthday" required="required" class="input" type="date" />
             </div>
           </div>
           <div class="control has-text-centered">
-            <button class="button is-primary" v-on:click="enviarForm">Enviar</button>
+            <button class="button is-primary" v-on:click="enviarForm">Registrarse</button>
           </div>
         </form>
       </div>
@@ -62,17 +62,34 @@
 </template>
 
 <script>
+import http from '../mixins/axios'
 export default {
   name: "Signup",
   data: function () {
     return {
-      name: ''
+      firstName: '',
+      lastname: '',
+      gender: '',
+      email: '',
+      password: '',
+      phone: '',
+      birthday: ''
     }
   },
   methods: {
     enviarForm() {
-
+      console.log({
+        firstName: this.firstName,
+        lastname: this.lastname,
+        gender: this.gender,
+        email: this.email,
+        password: this.password,
+        phone: this.phone,
+        birthday: this.birthday
+      })
+      this.postAxios()
     }
-  }
+  },
+  mixins: [http]
 };
 </script>

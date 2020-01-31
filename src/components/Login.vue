@@ -1,60 +1,40 @@
 <template>
   <div class="container">
-    <div class="field">
-      <label class="label">Nombre</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Text input" />
+    <div class="columns">
+      <div class="column is-6 is-offset-3">
+        <form onsubmit="return false" action>
+          <div class="field">
+            <label class="label">Correo</label>
+            <div class="control">
+              <input required="required" class="input" type="email" placeholder="correo@ejemplo.com"
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Contraseña</label>
+            <div class="control">
+              <input required="required" class="input" type="password" placeholder="********" />
+            </div>
+          </div>
+          <div class="control has-text-centered">
+            <button class="button is-primary" v-on:click="enviarForm">Login</button>
+          </div>
+        </form>
       </div>
-    </div>
-    <div class="field">
-      <label class="label">Apellidos</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Text input" />
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Correo</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Text input" />
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Contraseña</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Text input" />
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Teléfono</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Text input" />
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Fecha de nacimiento</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Text input" />
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Género</label>
-      <div class="control">
-        <div class="select">
-          <select>
-            <option>Select dropdown</option>
-            <option>With options</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="control">
-      <button class="button is-primary">Enviar</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  methods: {}
+  name: "Login",
+  data: function() {
+    return {
+      name: ""
+    };
+  },
+  methods: {
+    enviarForm() {}
+  }
 };
 </script>
