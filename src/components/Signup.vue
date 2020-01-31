@@ -78,7 +78,7 @@ export default {
   },
   methods: {
     enviarForm() {
-      console.log({
+      this.postAxios('/users', {
         firstName: this.firstName,
         lastname: this.lastname,
         gender: this.gender,
@@ -86,8 +86,10 @@ export default {
         password: this.password,
         phone: this.phone,
         birthday: this.birthday
+      }).then(res => {
+        console.log(this.$route)
+        console.log(res)
       })
-      this.postAxios()
     }
   },
   mixins: [http]
