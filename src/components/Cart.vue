@@ -11,13 +11,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="planta in plantas" :key="planta._id">
-                    <td>{{planta.name}}</td>
-                    <td>{{planta.specie}}</td>
+                <tr v-for="cartItem in cartItems" :key="cartItem._id">
+                    <td>{{cartItem.name}}</td>
+                    <td>{{cartItem.specie}}</td>
                     <td><span></span></td>
                     <td>$<span></span></td>
                     <td class="has-text-centered">
-                        <button class="button is-danger" v-on:click="borrar(planta._id)"><i class="fas fa-trash"></i></button>
+                        <button class="button is-danger" v-on:click="borrar(cartItem._id)"><i class="fas fa-trash"></i></button>
                     </td>
                 </tr>
             </tbody>
@@ -29,29 +29,29 @@
 import axios from 'axios'
 export default {
     mounted() {
-        this.pedirPlantas()
+        this.pedirCarrito()
     },
     data: function() {
         return {
-            plantas: []
+            cartItems: []
         }
     },
     methods: {
-        pedirPlantas(){
-            axios.get('http://localhost:3000/plants', {
-                responseType: 'json'
-            })
-            .then((response) => {
-                this.plantas = response.data
-            })
-        },
         borrar(id){
-            this.plantas.forEach((plant, index) => {
+            this.cartItems.forEach((plant, index) => {
                 if(plant._id == id){
-                    this.plantas.splice(index, 1);
+                    this.cartItems.splice(index, 1);
                 }
             });
             //TODO: Delete plant from cart
+        },
+        pedirCarrito(){
+            axios.get('http://localhost:3000/trolleys', {
+                responseType: 'json'
+            })
+            .then((response) => {
+                this.cartItems = response.data
+            })
         }
     }
 };
