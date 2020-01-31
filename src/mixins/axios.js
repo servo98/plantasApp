@@ -3,7 +3,9 @@ import axios from 'axios'
 const http = axios.create({
     baseURL: 'http://localhost:4000/',
     timeout: 1000,
-
+    headers: {
+        auth: localStorage.token
+    }
     // headers: {
     //     "Access-Control-Allow-Origin": "*",
     //     // "Access-Control-Expose-Headers": "Access-Control-*",
@@ -31,6 +33,14 @@ export default {
         },
         deleteAxios(endPoint){
             return http.delete(endPoint);
+        },
+        login(token){
+            http.defaults.headers.auth = token
+        },
+        logout(){
+            http.defaults.headers.auth = undefined
+            this.$router.push('/')
         }
+
     }
 }

@@ -56,6 +56,16 @@
 <script>
 import axios from "../mixins/axios";
 export default {
+  data: function (params) {
+    return {
+      logged: localStorage.token
+    }
+  },
+  watch: {
+    $route(to, trom){
+
+    }
+  },
   mixins: [axios],
   methods: {
     login() {
