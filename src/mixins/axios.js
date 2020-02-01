@@ -1,13 +1,12 @@
 import axios from 'axios'
 
 const http = axios.create({
-    baseURL: 'http://localhost:3000/',
+    baseURL: process.env.VUE_APP_SERVICE_URL,
     timeout: 1000,
     headers: {
         auth: localStorage.token
     }
 });
-
 export default {
     methods: {
         getAxios(endPoint) {
