@@ -7,7 +7,7 @@ const http = axios.create({
         auth: localStorage.token
     }
 });
-
+console.log(process.env)
 export default {
     methods: {
         getAxios(endPoint) {
