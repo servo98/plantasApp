@@ -5,7 +5,7 @@ const http = axios.create({
     timeout: 1000,
     headers: {
         auth: localStorage.token,
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "https://plantasapp.now.sh"
     }
 });
 console.log(process.env, 'holaaa')
