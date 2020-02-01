@@ -4,7 +4,8 @@ const http = axios.create({
     baseURL: process.env.VUE_APP_SERVICE_URL,
     timeout: 1000,
     headers: {
-        auth: localStorage.token
+        auth: localStorage.token,
+        "Access-Control-Allow-Origin": "*"
     }
 });
 console.log(process.env, 'holaaa')

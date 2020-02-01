@@ -1,7 +1,7 @@
 {
     "build": {
       "env": {
-        "VUE_APP_SERVICE_URL": "@http://www.facebook.com:3000/"
+        "VUE_APP_SERVICE_URL": "@service-url"
       }
     }
   }
