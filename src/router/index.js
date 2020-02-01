@@ -8,6 +8,7 @@ import Login from '../components/Login.vue'
 import Signup from '../components/Signup.vue'
 
 import Greenhouse from '../components/Greenhouse.vue'
+import Infoplanta from  '../components/plantinfo.vue'
 
 Vue.use(VueRouter)
 
@@ -40,6 +41,11 @@ const routes = [
     path: '/greenhouse',
     name: 'greenhouse',
     component: Greenhouse
+  },
+  {
+    path: '/infoplanta',
+    name: 'infoplanta',
+    component: Infoplanta
   },
   {
     path: '/'
