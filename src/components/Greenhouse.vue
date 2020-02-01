@@ -20,9 +20,9 @@
                      <p class="is-size-3">{{planta.name}}</p>
                     <p class="is-size-5">{{planta.specie}}</p> 
                     <p class="is-size-5">{{planta.size}}</p>   
-                    <p class="is-size-5">{{planta.price}}</p> 
+                    <p class="is-size-5">{{planta.price}}</p>  
                     <br>   
-                    <a class="button is-success is-7"  method="put" action"/`${:id}`/add/`${:id_plant"  >Agregar al carrito</a>
+                    <a class="button is-success is-7"  v-on:click="addPlant(planta._id)"  >Agregar al carrito</a>
                       <br>  
                         <br> 
                     <a class="button is-success is-7  ">comprar ahora</a> 
@@ -31,7 +31,7 @@
                     <a class="button is-success is-7 "> +info</a>
                         <br> 
                         <br> 
-
+ 
                 </div>
             </div>
        
@@ -40,7 +40,8 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios'  
+import http from '../mixins/axios'
 export default {
     mounted() {
         this.pedirPlantas()
@@ -53,36 +54,26 @@ export default {
     
     methods: {
         pedirPlantas(){
-            axios.get('http://localhost:3080/plants', {
-                responseType: 'json'
-            })
-            .then((response) => {
-                this.plantas = response.data
-            })
-        },
-        crearCarritoUsuario(){
-           // axios.get('',{
-            //responsive tipe online
-            })
-            .then((response) => {
-                //this.user == online
-            })
-        },
-        crearCarritoInvitado(){
-        },
-        agregarPlantaCarrito(){
-         
-        },
-        quitarPlantaCarrito(){
-        },
-        mostrarSoloAccesorios(){
-        },
-        comprarAhoraUsuario(){
-        },
-        comprarAhoraOnline(){
+            this.getAxios('plants')
+                .then(res => {
+                    this.plantas = res.data
+                });
         },
 
-    }
-
+       
+        addPlant(id) {
+            this.getAxios('/trolleys/trolleyByUser/' + localStorage.id) 
+                .then(res => {
+                    console.log(res)
+                    this.putAxios('trolleys/'+idcarrito + '/add' +id) 
+                        .then(res => {
+                            console.log(res.data)
+                        }).catch(error => {
+                        console.log(error)
+                        });
+                })
+        },  
+    },
+    mixins: [http]
 };
 </script>

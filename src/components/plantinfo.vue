@@ -57,14 +57,7 @@ export default {
                 this.plantas = response.data
             })
         },
-        crearCarritoUsuario(){
-           // axios.get('',{
-            //responsive tipe online
-            })
-           // .then((response) => {
-                //this.user == online
-            })
-        },
+        
         crearCarritoInvitado(){
         },
         agregarPlantaCarrito(){

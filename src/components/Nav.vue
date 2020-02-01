@@ -20,7 +20,7 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" v-on:click="getAxios('pokemon/ditto/')">Home</a>
+        <a class="navbar-item">Home</a>
 
         <a class="navbar-item">Documentation</a>
 
@@ -40,10 +40,10 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <router-link to="/login" class="button is-primary">
+            <router-link to="/signup" class="button is-primary">
               Sign up
             </router-link>
-            <router-link to="/signup" class="button is-light">
+            <router-link to="/login" class="button is-light">
               Log in
             </router-link>
           </div>
@@ -56,6 +56,16 @@
 <script>
 import axios from "../mixins/axios";
 export default {
+  data: function () {
+    return {
+      logged: localStorage.token
+    }
+  },
+  watch: {
+    $route(to, trom){
+      this.logged = localStorage.token != undefined 
+    }
+  },
   mixins: [axios],
   methods: {
     login() {

@@ -8,7 +8,9 @@ import Login from '../components/Login.vue'
 import Signup from '../components/Signup.vue'
 
 import Greenhouse from '../components/Greenhouse.vue'
-import Infoplanta from  '../components/plantinfo.vue'
+import InfoPlanta from  '../components/Plantinfo.vue'
+import Cart from '../components/Cart.vue'
+import Profile from '../components/Profile.vue'
 
 Vue.use(VueRouter)
 
@@ -16,17 +18,26 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: Login
+    component: Login,
+    meta: {
+      guest: true
+    }
   },
   {
     path: '/signup',
     name: 'signup',
-    component: Signup
+    component: Signup,
+    meta: {
+      guest: true
+    }
   },
   {
     path: '/home',
     name: 'home',
-    component: Home
+    component: Home,
+    meta: {
+      guest: true
+    }
   },
   {
     path: '/about',
@@ -44,8 +55,22 @@ const routes = [
   },
   {
     path: '/infoplanta',
-    name: 'infoplanta',
-    component: Infoplanta
+    name: 'InfoPlanta',
+    component: InfoPlanta,
+    path: '/cart',
+    name: 'cart',
+    component: Cart,
+    meta: {
+      auth: true
+    }
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: Profile,
+    meta: {
+      auth: true
+    }
   },
   {
     path: '/'
@@ -57,5 +82,22 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  if(to.matched.some(record => record.meta.auth)){
+    if(localStorage.token == null){
+      console.log('entra al chido')
+      next({
+        path: '/login',
+        params: { nextUrl: to.fullPath }
+
+      })
+    }else{
+      next()
+    }
+  }else{
+    next()
+  }
+});
 
 export default router
