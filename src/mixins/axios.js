@@ -7,7 +7,7 @@ const http = axios.create({
         auth: localStorage.token
     }
 });
-console.log(process.env)
+console.log(process.env, 'holaaa')
 export default {
     methods: {
         getAxios(endPoint) {
