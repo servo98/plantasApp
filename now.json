@@ -1,0 +1,7 @@
+{
+    "build": {
+      "env": {
+        "VARIABLE_NAME": "@http://www.facebook.com:3000/"
+      }
+    }
+  }
