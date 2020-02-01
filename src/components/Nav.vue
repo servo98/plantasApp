@@ -20,7 +20,7 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" v-on:click="getAxios('pokemon/ditto/')">Home</a>
+        <a class="navbar-item">Home</a>
 
         <a class="navbar-item">Documentation</a>
 
