@@ -2,7 +2,6 @@
   <div class="container">
     <div class="columns">
       <div class="column is-6 is-offset-3">
-        <form onsubmit="return false" action>
           <div class="field">
             <label class="label">Correo</label>
             <div class="control">
@@ -19,7 +18,6 @@
           <div class="control has-text-centered">
             <button class="button is-primary" v-on:click="enviarForm">Login</button>
           </div>
-        </form>
       </div>
     </div>
   </div>
