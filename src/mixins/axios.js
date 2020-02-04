@@ -1,35 +1,37 @@
 import axios from 'axios'
 
-const http = axios.create({
-    baseURL: process.env.VUE_APP_SERVICE_URL,
-    timeout: 1000,
-    // headers: {
-    //     auth: localStorage.token,
-    //     // "Access-Control-Allow-Origin": "https://plantasapp.now.sh"
-    // }
-});
+
+axios.defaults.baseURL = process.env.VUE_APP_SERVICE_URL
+// const http = axios.create({
+//     baseURL: process.env.VUE_APP_SERVICE_URL,
+//     timeout: 1000,
+//     // headers: {
+//     //     auth: localStorage.token,
+//     //     // "Access-Control-Allow-Origin": "https://plantasapp.now.sh"
+//     // }
+// });
 console.log(process.env, 'holaaa')
 export default {
     methods: {
         getAxios(endPoint) {
-            return http.get(endPoint);
+            return axios.get(endPoint);
         },
         postAxios(endPoint, data){
-            return http.post(endPoint, data);
+            return axios.post(endPoint, data);
         },
         putAxios(endPoint, data){
-            return http.put(endPoint, {
+            return axios.put(endPoint, {
                 data
             });
         },
         deleteAxios(endPoint){
-            return http.delete(endPoint);
+            return axios.delete(endPoint);
         },
         login(token){
-            http.defaults.headers.auth = token
+            axios.defaults.headers.auth = token
         },
         logout(){
-            http.defaults.headers.auth = undefined
+            axios.defaults.headers.auth = undefined
             this.$router.push('/')
         }
 
