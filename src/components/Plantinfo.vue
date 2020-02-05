@@ -33,7 +33,7 @@
                                   <img src="https://bulma.io/images/placeholders/128x128.png">
                                 </figure>
                                 </div>
-                                <div v-for="planta in plantas"  >
+                                <div v-for="planta in plantas" :key="planta._id" >
                                 <div class="media-content">
                                             <p class="is-size-3">{{planta.name}}</p>
                                             <p class="is-size-5">${{planta.price}}</p>    
