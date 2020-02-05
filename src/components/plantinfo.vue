@@ -1,46 +1,64 @@
-<template>
+<template> 
+    <div class="container">
 
-   
-
-<div class="container">
-    
-        
-    
-        <div class="columns  is-multiline ">
-           
-                <br>
-                      <figure class="image is-4by3">
-                        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                      </figure>
-                     <p class="is-size-3">{{planta.name}}</p>
-                    <p class="is-size-5">{{planta.specie}}</p> 
-                    <p class="is-size-5">{{planta.size}}</p>   
-                    <p class="is-size-5">{{planta.price}}</p> 
-                    <br>   
-                    <a class="button is-success is-7  " >Agregar al carrito</a>
-                      <br>  
-                        <br> 
-                    <a class="button is-success is-7  ">comprar ahora</a> 
-                        <br>    
-                          <br> 
-                    <a class="button is-success is-7 "> +info</a>
-                        <br> 
-                        <br> 
-
-                
+        <div class="control">
+            <div class="columns is-half is-vcentered">
+                <button type="submit column" class="button is-primary"> Ver todas las plantas</button>
             </div>
-       
-    </div>
-    
-</figure>
-    
-</template>
+        </div>
+        <br>
+             <div class="columns is-multiline is-vcentered">
+                <div class="column">
+                    <figure class=" image is-128x128">
+                    <img src="https://bulma.io/images/placeholders/128x128.png">
+                    </figure>
+                    <br>
+                
+                    <figure class="image is-128x128">
+                    <img src="https://bulma.io/images/placeholders/128x128.png">
+                    </figure>
+                    <br>
+                    <figure class="image is-128x128">
+                    <img src="https://bulma.io/images/placeholders/128x128.png">
+                    </figure>
+                </div>
+            </div>
+             <div class="columns is-multiline is-vcentered">
+                <div class="column is-6">    
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                 <figure class=" image is-128x128">
+                                  <img src="https://bulma.io/images/placeholders/128x128.png">
+                                </figure>
+                                </div>
+                                <div v-for="planta in plantas"  >
+                                <div class="media-content">
+                                            <p class="is-size-3">{{planta.name}}</p>
+                                            <p class="is-size-5">${{planta.price}}</p>    
+                                        </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+             </div>
+                
+         
 
+     </div>
+       
+
+        
+
+</template>
 <script>
-import axios from 'axios'
+import axios from 'axios'  
+
 export default {
     mounted() {
-        this.pedirPlantas()
+         this.pedirPlantas()
     },
     data: function() {
         return {
@@ -50,29 +68,29 @@ export default {
     
     methods: {
         pedirPlantas(){
-            axios.get('http://localhost:3080/plants', {
+           axios.get('http://localhost:3080/plants', {
                 responseType: 'json'
             })
             .then((response) => {
                 this.plantas = response.data
             })
         },
-        
-        crearCarritoInvitado(){
-        },
-        agregarPlantaCarrito(){
-        
-        },
-        quitarPlantaCarrito(){
-        },
-        mostrarSoloAccesorios(){
-        },
-        comprarAhoraUsuario(){
-        },
-        comprarAhoraOnline(){
-        },
 
-    }
-
+       
+        addPlant(id) {
+            this.getAxios('/trolleys/trolleyByUser/' + localStorage.id) 
+                .then(res => {
+                    console.log(res)
+                    this.putAxios('trolleys/'+ trolley.id + '/add' + id) 
+                        .then(res => {
+                            trolley.push(id)
+                        
+                        }).catch(error => {
+                        console.log(error)
+                        });
+                })
+        },  
+    },
+    
 };
 </script>

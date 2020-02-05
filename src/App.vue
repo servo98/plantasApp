@@ -2,8 +2,9 @@
   <div id="app">
     <div id="nav">
       <Nav/>
-      <router-link to="/home">Home</router-link> |
+             <router-link to="/home">Home</router-link> |
       <router-link to="/about">About</router-link>
+
     </div>
     <router-view/>
   </div>
@@ -24,6 +25,7 @@ export default {
       let expires = "expires="+ d.toUTCString();
       document.cookie = 'eose;'+ expires + ";path=/";
     }
+    
   },
   components: {
     Nav

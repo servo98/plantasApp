@@ -18,24 +18,23 @@
       </a>
     </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div id="navbarspecial" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item">Home</a>
-
-        <a class="navbar-item">Documentation</a>
-
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">More</a>
-
-          <div class="navbar-dropdown">
-            <a class="navbar-item">About</a>
-            <a class="navbar-item">Jobs</a>
-            <a class="navbar-item">Contact</a>
-            <hr class="navbar-divider" />
-            <a class="navbar-item">Report an issue</a>
-          </div>
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class=" navbar-link">Green House</a>
+        <div class="navbar-dropdown">
+            <a class="navbar-item">Plants</a>
+            <a class="navbar-item">Tools</a>
         </div>
       </div>
+        
+         <a class="navbar-item">Tu planta ideal</a>
+        <a class="navbar-item">La planta que quieras</a>
+
+       
+      </div>
+    </div>
 
       <div class="navbar-end">
         <div class="navbar-item">
@@ -49,8 +48,9 @@
           </div>
         </div>
       </div>
-    </div>
+   
   </nav>
+  
 </template>
 
 <script>

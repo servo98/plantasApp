@@ -8,9 +8,11 @@ import Login from '../components/Login.vue'
 import Signup from '../components/Signup.vue'
 
 import Greenhouse from '../components/Greenhouse.vue'
-import InfoPlanta from  '../components/Plantinfo.vue'
+import Plantinfo from  '../components/Plantinfo.vue'
 import Cart from '../components/Cart.vue'
 import Profile from '../components/Profile.vue'
+import First from '../components/First.vue'
+
 
 Vue.use(VueRouter)
 
@@ -54,15 +56,24 @@ const routes = [
     component: Greenhouse
   },
   {
-    path: '/infoplanta',
-    name: 'InfoPlanta',
-    component: InfoPlanta,
+    path: '/plantinfo',
+    name: 'plantinfo',
+    component: Plantinfo,
+  },
+  {
     path: '/cart',
     name: 'cart',
     component: Cart,
     meta: {
       auth: true
     }
+  },
+  {   
+    path: '/first',
+    name: 'first',
+    component : First,
+
+
   },
   {
     path: '/profile',
