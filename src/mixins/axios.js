@@ -1,13 +1,14 @@
 import axios from 'axios'
 
 const http = axios.create({
-    baseURL: 'http://localhost:3000/',
+    baseURL: process.env.VUE_APP_SERVICE_URL,
     timeout: 1000,
-    headers: {
-        auth: localStorage.token
-    }
+    // headers: {
+    //     auth: localStorage.token,
+    //     // "Access-Control-Allow-Origin": "https://plantasapp.now.sh"
+    // }
 });
-
+console.log(process.env, 'holaaa')
 export default {
     methods: {
         getAxios(endPoint) {
