@@ -1,14 +1,34 @@
 <template>
   <div class="container">
     <div class="control">
-      <div class="columns is-half   is-vcentered">
+    <div class='media-right'>
+     <div class='media-right'>
+      <div class='media-right'>
+       <div class='media-right'>
+       <div class='media-right'>
+       <div class='media-right'>
+       <div class='media-right'>
+       <div class='media-right'>
+       <div class='media-right'>
+       <div class='media-right'>
+      <div class="columns column is-half is-offset-one-quarter ">
         <input
           class="input column is-half "
           type="text"
           placeholder="Que planta buscas"
         />
-
+    
         <button type="submit column" class="button is-primary ">Buscar</button>
+        </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
       </div>
     </div>
 
@@ -36,7 +56,7 @@
         <a class="button is-success is-7  ">comprar ahora</a>
         <br />
         <br />
-        <a class="button is-success is-7 "> +info</a>
+        <router-link :to="'/plantinfo/'+planta._id" class="button is-success is-7 "> +info</router-link >
         <br />
         <br />
       </div>
@@ -58,24 +78,24 @@ export default {
   },
 
   methods: {
-    // pedirPlantas() {
-    //   this.getAxios("plants").then(res => {
-    //     this.plantas = res.data;
-    //   });
-    // },
+    pedirPlantas() {
+      this.getAxios("plants").then(res => {
+        this.plantas = res.data;
+      });
+    },
 
-    // addPlant(id) {
-    //   this.getAxios("/trolleys/trolleyByUser/" + localStorage.id).then(res => {
-    //     console.log(res);
-    //     this.putAxios("trolleys/" + trolley.id + "/add" + id)
-    //       .then(res => {
-    //         trolley.push(id);
-    //       })
-    //       .catch(error => {
-    //         console.log(error);
-    //       });
-    //   });
-    // }
+    addPlant(id) {
+      this.getAxios("/trolleys/trolleyByUser/" + localStorage.id).then(res => {
+        console.log(res);
+        this.putAxios("trolleys/" + trolley.id + "/add" + id)
+          .then(res => {
+            trolley.push(id);
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      });
+    }
   },
   mixins: [http]
 };

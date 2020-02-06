@@ -56,7 +56,7 @@ const routes = [
     component: Greenhouse
   },
   {
-    path: '/plantinfo',
+    path: '/plantinfo/:plantId',
     name: 'plantinfo',
     component: Plantinfo,
   },
