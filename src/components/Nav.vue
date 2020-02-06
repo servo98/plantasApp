@@ -38,13 +38,18 @@
 
       <div class="navbar-end">
         <div class="navbar-item">
-          <div class="buttons">
+          <div v-if="!logged" class="buttons">
             <router-link to="/signup" class="button is-primary">
               Sign up
             </router-link>
             <router-link to="/login" class="button is-light">
               Log in
             </router-link>
+          </div>
+          <div v-else class="buttons">
+            <button v-on:click="logout" class="button is-warning">
+              Logout
+            </button>
           </div>
         </div>
       </div>
@@ -69,6 +74,10 @@ export default {
   mixins: [axios],
   methods: {
     login() {
+    },
+    logout() {
+      localStorage.clear()
+      this.$router.push('/login')
     }
   }
 };

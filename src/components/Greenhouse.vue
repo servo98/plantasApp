@@ -45,7 +45,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import http from "../mixins/axios";
 export default {
   mounted() {
@@ -58,24 +57,24 @@ export default {
   },
 
   methods: {
-    // pedirPlantas() {
-    //   this.getAxios("plants").then(res => {
-    //     this.plantas = res.data;
-    //   });
-    // },
+    pedirPlantas() {
+      this.getAxios("plants").then(res => {
+        this.plantas = res.data;
+      });
+    },
 
-    // addPlant(id) {
-    //   this.getAxios("/trolleys/trolleyByUser/" + localStorage.id).then(res => {
-    //     console.log(res);
-    //     this.putAxios("trolleys/" + trolley.id + "/add" + id)
-    //       .then(res => {
-    //         trolley.push(id);
-    //       })
-    //       .catch(error => {
-    //         console.log(error);
-    //       });
-    //   });
-    // }
+    addPlant(id) {
+      this.getAxios("/trolleys/trolleyByUser/" + localStorage.id).then(res => {
+        console.log(res);
+        this.putAxios("trolleys/" + trolley.id + "/add" + id)
+          .then(res => {
+            trolley.push(id);
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      });
+    }
   },
   mixins: [http]
 };

@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import http from "../mixins/axios";
 export default {
     mounted() {
         this.pedirCarrito()
@@ -46,13 +46,12 @@ export default {
             //TODO: Delete plant from cart
         },
         pedirCarrito(){
-            axios.get('http://localhost:3000/trolleys', {
-                responseType: 'json'
-            })
+            http.getAxios('')
             .then((response) => {
                 this.cartItems = response.data
             })
         }
-    }
+    },
+    mixins: [http]
 };
 </script>
