@@ -44,6 +44,14 @@ export default {
         localStorage.id = res.data.id
         this.login(localStorage.token)
         this.$router.push('/')
+      })
+      .catch(error => {
+        this.$emit('notificate', {
+          text: error,
+          show: true,
+          type: 'danger',
+          title: 'Error'
+        });
       });
     }
   },

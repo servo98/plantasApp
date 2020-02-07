@@ -97,7 +97,6 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   if(to.matched.some(record => record.meta.auth)){
     if(localStorage.token == null){
-      console.log('entra al chido')
       next({
         path: '/login',
         params: { nextUrl: to.fullPath }
