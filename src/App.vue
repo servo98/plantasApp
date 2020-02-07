@@ -5,7 +5,7 @@
       <router-link to="/home">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <Notification :show="noti.show" :text="noti.text" :type="noti.type" :title="noti.title"/>
+    <Notification @closeNotification="hideNotification" :show="noti.show" :text="noti.text" :type="noti.type" :title="noti.title"/>
     <router-view @notificate="notification"/>
   </div>
 </template>
@@ -33,7 +33,9 @@ export default {
     },
     notification(data) {
       this.noti = data;
-      console.log('Holaaa');
+    },
+    hideNotification(){
+      this.noti.show = false;
     }
     
   },

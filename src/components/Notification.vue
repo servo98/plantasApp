@@ -1,7 +1,7 @@
 <template>
   <div :class="'notification is-'+type" v-if="show">
-    <button class="delete" v-on:click="hideNotification"></button>
-    <h5 class="subtitle is-5">{{title}}</h5>
+    <button class="delete" v-on:click="v => this.$emit('closeNotification')"></button>
+    <h5 class="subtitle is-5">{{title}}</h5>    
     {{text}}
   </div>
 </template>
@@ -21,9 +21,7 @@ export default {
         title: String
     },
     methods: {
-        hideNotification(){
-            this.show = false;
-        }
+        
     },
 
 };
