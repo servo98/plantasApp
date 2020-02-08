@@ -11,7 +11,8 @@ import Greenhouse from '../components/Greenhouse.vue'
 import Plantinfo from  '../components/Plantinfo.vue'
 import Cart from '../components/Cart.vue'
 import Profile from '../components/Profile.vue'
-import First from '../components/First.vue'
+import Plantaideal from '../components/Plantaideal.vue'
+import Plantaquequieras from '../components/Plantaquequieras.vue'
 
 
 Vue.use(VueRouter)
@@ -69,10 +70,16 @@ const routes = [
     }
   },
   {   
-    path: '/first',
-    name: 'first',
-    component : First,
+    path: '/plantaideal',
+    name: 'plantaideal',
+    component : Plantaideal,
 
+
+  },
+  {   
+    path: '/plantaquequieras',
+    name: 'plantaquequieras',
+    component : Plantaquequieras,
 
   },
   {
