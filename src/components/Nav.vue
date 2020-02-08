@@ -47,6 +47,9 @@
             </router-link>
           </div>
           <div v-else class="buttons">
+            <router-link to="/cart" class="button is-info">
+              Mi carrito
+            </router-link>
             <button v-on:click="logout" class="button is-warning">
               Logout
             </button>

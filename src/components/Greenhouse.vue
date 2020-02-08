@@ -46,6 +46,7 @@
 
 <script>
 import http from "../mixins/axios";
+import noti from "../mixins/notifications";
 export default {
   mounted() {
     this.pedirPlantas();
@@ -64,18 +65,15 @@ export default {
     },
 
     addPlant(id) {
-      this.getAxios("/trolleys/trolleyByUser/" + localStorage.id).then(res => {
-        console.log(res);
-        this.putAxios("trolleys/" + trolley.id + "/add" + id)
-          .then(res => {
-            trolley.push(id);
-          })
-          .catch(error => {
-            console.log(error);
-          });
-      });
+      this.putAxios(`/trolleys/add/${id}`)
+        .then(res => {
+          this.sendSuccess('Listo!', `Se ha agregado el producto al tu carrito`);
+        })
+        .catch(error => {
+          this.sendError('Error', 'Lo sentimos, ha ocurrido un erro al agregar esta planta a tu carrito');
+        });
     }
   },
-  mixins: [http]
+  mixins: [http, noti]
 };
 </script>
