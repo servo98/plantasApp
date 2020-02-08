@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="control has-text-centered">
-          <button class="button is-primary" v-on:click="enviarForm">Login</button>
+          <button id="submit" class="button is-primary" v-on:click="enviarForm">Login</button>
         </div>
       </div>
     </div>
