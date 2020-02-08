@@ -55,7 +55,6 @@ export default {
           this.sendSuccess('Bienvenido', '')
           // this.$router.push("/login");
           localStorage.token = res.data.token;
-          localStorage.id = res.data.id;
           this.login(localStorage.token);
           this.$router.push("/");
         })

@@ -24,6 +24,7 @@ export default {
             return http.delete(endPoint);
         },
         login(token){
+            console.log('es hooyoy')
             http.defaults.headers.auth = token
         },
         logout(){

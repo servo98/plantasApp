@@ -21,7 +21,7 @@
         <br />
         <figure class="image is-4by3">
           <img
-            src="https://bulma.io/images/placeholders/1280x960.png"
+            :src="service_url+planta.image"
             alt="Placeholder image"
           />
         </figure>
@@ -58,8 +58,8 @@ export default {
 
   methods: {
     pedirPlantas() {
-      this.getAxios("plants").then(res => {
-        this.plantas = res.data;
+      this.getAxios("/plants").then(res => {
+        this.plantas = res.data.plants;
       });
     },
 
