@@ -97,6 +97,10 @@ export default {
       });
     }
   },
+    idealPlant(plantId){
+      this.getAxios('/plants/plantsbyuser/' )
+    },
+  
   mixins: [http]
 };
 </script>

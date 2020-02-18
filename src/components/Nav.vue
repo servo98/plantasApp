@@ -22,15 +22,15 @@
       <div class="navbar-start">
       
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class=" navbar-link">Green House</a>
+        <a class=" navbar-link"> <router-link to='/greenhouse'>Green House</router-link></a>
         <div class="navbar-dropdown">
             <a class="navbar-item">Plants</a>
             <a class="navbar-item">Tools</a>
         </div>
       </div>
         
-         <a class="navbar-item">Tu planta ideal</a>
-        <a class="navbar-item">La planta que quieras</a>
+         <a class="navbar-item"><router-link to='/plantaideal'>Tu planta ideal</router-link></a>
+        <a class="navbar-item"><router-link to='/plantaquequieras'>La planta que quieras</router-link></a>
 
        
       </div>

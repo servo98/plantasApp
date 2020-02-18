@@ -1,43 +1,28 @@
+
 <template >
-  <section class="hero">
- <div class="hero-body">
- <div :style="{'background-image': 'url(./images/IMG.JPG)'}">
-                    <div class='media-right'>
-           
-            <div class='media-right'>
-            <div class='media-right'>
-            <div class='media-right'>
-            <div class='media-right'>
-            <div class='media-right'>
-            <div class='media-right'>
-            <div class='media-right'>
-                <div class='media-right'>
-       
-             <br>
-         <br>
-          <br>
-           <br>
-           
-                <div class='column is-4 has-text-centered'>
-                    <p class='title'>
+  
+ <div class="card has-text-centered ">
+ <div class='card-content  has-text-centered'>
+ <div class='columns is-overlay has-text-centered' style='top: 200px; left: 450px'>
+                <div class="column is-half has-text-centered ">   <p class='title'>
                     "discurso de planta ideal"
                     </p>
 
-                </div>            
-                                <div class="column is-4 has-text-centered">
-                                    
-                                        <div class="select is-rounded">
-                                                <select>
+                        
+                              
+                                   
+                                        <div class="select is-rounded is-4">
+                                                <select>2
                                                     <option>Luz adecuada</option>
                                                     <option>Sombra</option>
                                                     <option>Luz </option>
                                                     <option>Ambas</option>
                                                 </select>
                                         </div>
-                                    
-                                </div>
+                                   
+                                
 
-                                    <div class="column is-4 has-text-centered"> 
+                                    
                                             
                         
 
@@ -47,35 +32,27 @@
                                                         <option>Cada semana</option>
                                                         <option>Cada dos dias </option>
                                                     </select>
-                                                </div>
+                                                </div><br>
                                                 
                             
                                             
                                         
-                                    </div>
+                                    <br>
 
-                                     <div class="column is-4 has-text-centered">
                                      <button class="button is-success is-rounded">obten tus plantas ideales</button>
 
 
-                                     </div>
+                                     
 
                                
 
        
-         </div>
-         </div>
-         </div>
-         </div>
-         </div>
-         </div>
+         
          </div>
          </div>
         </div>
            </div>   
-           </div>              
-       
-   </section>    
+     
 </template>
 
 <script>
@@ -120,8 +97,6 @@ export default {
 
 
 
-<style>
-  .hero { 
-    background: url('') center/ cover;
-    }
+<style scoped>
+
 </style>
